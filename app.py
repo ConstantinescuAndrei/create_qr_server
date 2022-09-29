@@ -10,7 +10,7 @@ def create_qr():
     if request.method == 'POST':
         print(payload['menu_link'])
         menu_link = payload['menu_link']
-        img = qrcode.make("www.google.com/" + menu_link)
+        img = qrcode.make("http://localhost:3000/" + menu_link)
         img.save("qrcode.png")
 
         return send_file('qrcode.png')
