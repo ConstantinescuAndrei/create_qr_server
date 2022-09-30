@@ -13,7 +13,9 @@ def create_qr():
     if request.method == 'POST':
         print(payload['menu_link'])
         menu_link = payload['menu_link']
-        img = qrcode.make("http://localhost:3000/" + menu_link)
+        print(menu_link['name'])
+        print(menu_link['id'])
+        img = qrcode.make("http://localhost:3000/" + menu_link['name'] + '/' + menu_link['id'])
         img.save("qrcode.png")
         encoded = base64.b64encode(open("qrcode.png", "rb").read())
 
